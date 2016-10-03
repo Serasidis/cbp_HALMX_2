@@ -14,7 +14,7 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 - [**Arduino_Core_STM32F1**](https://github.com/stm32duino/Arduino_Core_STM32F1) The new core for STM32 MCUs 
 - [**Arduino IDE**](https://www.arduino.cc/en/Main/Software) (tested on 1.6.9)
-  ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg)
+
 ##Developer
 - Vassilis Serasidis (https://github.com/Serasidis)
 - [http://www.serasidis.gr](http://www.serasidis.gr)
@@ -36,11 +36,7 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 ##Using it with Arduino IDE 1.6.9 or later
 - Just extract the folder `cbp_HALMX_2` into Arduino IDE Hardware folder.
 
-<<<<<<< HEAD
-![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/images/arduino_ide.jpg) 
-=======
 ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg) 
->>>>>>> origin/master
 
 1. Select `Board'
 2. Select `BluePil-F103C8`
