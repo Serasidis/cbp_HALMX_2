@@ -23,20 +23,20 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 - Download the CodeBlocks from [here](http://www.codeblocks.org/). Istall it on your machine (Windows - Linux - Mac OSX)  
 - Run the `Codeblocks (launcher)` and open the `halmx_2.cbp` project file.
 
-![](file:///C:/Users/silis/Documents/GitHub/cbp_HALMX_2/images/codeblocks.jpg)
+![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/codeblocks.jpg)
 
 1. Select the `build target` box.
 2. Click on the `lib-MXBluePillF103C8` to select the library you want to create.
 3. Click on the `Build` or `ReBuild` button to create a static library of the Core.  
 4. Select the `Blink-MXBluePillF103C8` to compile the blink example code that blinks the on board LED on pin PC13.
-![](file:///C:/Users/silis/Documents/GitHub/cbp_HALMX_2/images/codeblocks_stlink.jpg)
+![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/codeblocks_stlink.jpg)
  6. Select `Tools`
  7. Click on `ST-LINK 8000000` to burn the bin file into the MCU flash memory through [ST-Link programmer-debugger](http://www.ebay.com/sch/i.html?_sacat=0&_nkw=st-link%2Fv2&_frs=1).
 
 ##Using it with Arduino IDE 1.6.9 or later
 - Just extract the folder `cbp_HALMX_2` into Arduino IDE Hardware folder.
 
-![](file:///C:/Users/silis/Documents/GitHub/cbp_HALMX_2/images/arduino_ide.jpg) 
+![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg) 
 
 1. Select `Board'
 2. Select `BluePil-F103C8`
