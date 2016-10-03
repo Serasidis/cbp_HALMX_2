@@ -14,7 +14,7 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 - [**Arduino_Core_STM32F1**](https://github.com/stm32duino/Arduino_Core_STM32F1) The new core for STM32 MCUs 
 - [**Arduino IDE**](https://www.arduino.cc/en/Main/Software) (tested on 1.6.9)
-  
+  ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg)
 ##Developer
 - Vassilis Serasidis (https://github.com/Serasidis)
 - [http://www.serasidis.gr](http://www.serasidis.gr)
@@ -27,7 +27,7 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 1. Select the `build target` box.
 2. Click on the `lib-MXBluePillF103C8` to select the library you want to create.
-3. Click on the `Build` or `ReBuild` button to create a static library of the Core.  
+3. Click on the `Build` or `ReBuild` button to create a static library of the Core. The static library has to be created only once. After that, you have to compile only your sketch.   
 4. Select the `Blink-MXBluePillF103C8` to compile the blink example code that blinks the on board LED on pin PC13.
 ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/codeblocks_stlink.jpg)
  6. Select `Tools`
@@ -36,7 +36,11 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 ##Using it with Arduino IDE 1.6.9 or later
 - Just extract the folder `cbp_HALMX_2` into Arduino IDE Hardware folder.
 
+<<<<<<< HEAD
+![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/images/arduino_ide.jpg) 
+=======
 ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg) 
+>>>>>>> origin/master
 
 1. Select `Board'
 2. Select `BluePil-F103C8`
@@ -44,7 +48,9 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 ##Credits
 - A big thanks to [Evangelos Arkalis](https://github.com/evark) for helping me to understand the CodeBlocks setup process.
-- A big thanks goes also to the [STM32duino](http://www.stm32duino.com) community (and especially to **Roger Clark**) for their STM32 support.
+- Thanks to [Frederic Pillon](https://github.com/fpistm) for his initial STM32 Core files.
+- A big thanks goes also to the [STM32duino](http://www.stm32duino.com) community (and especially to **Roger Clark**) for supporting the STM32 MCUs.
+
 
 ##Roadmap
 
