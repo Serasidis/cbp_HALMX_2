@@ -20,7 +20,7 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 - [http://www.serasidis.gr](http://www.serasidis.gr)
 
 ##Using it with Code::Blocks
-- Download the CodeBlocks from [here](http://www.codeblocks.org/). Istall it on your machine (Windows - Linux - Mac OSX)  
+- Download the CodeBlocks from [here](http://www.codeblocks.org/). Install it on your machine (Windows - Linux - Mac OSX)  
 - Run the `Codeblocks (launcher)` and open the `halmx_2.cbp` project file.
 
 ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/codeblocks.jpg)
