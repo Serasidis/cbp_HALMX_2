@@ -1,0 +1,3365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="halmx_2" />
+		<Option pch_mode="2" />
+		<Option compiler="arm-elf-gcc" />
+		<Build>
+			<Target title="lib-MXBluePillF103C8">
+				<Option output="halmx_2/variants/STM32F103C-BluePill/stm32f103c_stm32f103c_gcc_rel" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="lib/MXBluePillF103C8/obj" />
+				<Option type="2" />
+				<Option compiler="arm-elf-gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DUSE_USBSerial" />
+					<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" />
+					<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" />
+				</Compiler>
+			</Target>
+			<Target title="Blink-MXBluePillF103C8">
+				<Option output="examples/Blink/MXBluePillF103C8/Blink" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="examples/Blink/MXBluePillF103C8/obj" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DUSE_USBSerial" />
+				</Compiler>
+				<Linker>
+					<Add option="-O2" />
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-msoft-float" />
+					<Add option="-Wl,--gc-sections" />
+					<Add option="--specs=nano.specs" />
+					<Add option="-Wl,--cref" />
+					<Add option="-Wl,--check-sections" />
+					<Add option="-Wl,--unresolved-symbols=report-all" />
+					<Add option="-Wl,--warn-common" />
+					<Add option="-Wl,--warn-section-align" />
+					<Add option="-Wl,--warn-unresolved-symbols" />
+					<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref,--gc-sections,-zmuldefs" />
+					<Add option="-Thalmx_2/variants/STM32F103C-BluePill/linker_scripts/STM32F103C8_FLASH.ld" />
+					<Add option="-Wl,-whole-archive lib/MXBluePillF103C8/libcore.a -Wl,-no-whole-archive" />
+					<Add option="-lstdc++ -lsupc++ -lm -lgcc -lc -lnosys" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+					<Add after="arm-none-eabi-objcopy  -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="ALL" targets="lib-MXBluePillF103C8;Blink-MXBluePillF103C8;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-fomit-frame-pointer" />
+			<Add option="-O2" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-MMD" />
+			<Add option="-MP" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fdata-sections" />
+			<Add option="-fno-exceptions" />
+			<Add option="-fno-delete-null-pointer-checks" />
+			<Add option="-Wno-unused-parameter" />
+			<Add option="-Wno-missing-field-initializers" />
+			<Add option="-Wno-missing-braces" />
+			<Add option="-std=gnu++11" />
+			<Add option="-std=gnu99" />
+			<Add option="-nostdlib" />
+			<Add option="-fno-rtti" />
+			<Add option="-DUSE_HAL_DRIVER" />
+			<Add option="-D__STRICT_ANSI__" />
+			<Add directory="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include" />
+			<Add directory="halmx_2/cores/arduino/stm" />
+			<Add directory="halmx_2/cores/arduino" />
+			<Add directory="halmx_2/system/Drivers/CMSIS/Include" />
+			<Add directory="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" />
+			<Add directory="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc" />
+			<Add directory="halmx_2/system/libstm32f103c/include" />
+			<Add directory="halmx_2/system/libstm32f103c" />
+			<Add directory="halmx_2/variants/STM32F103C-BluePill" />
+		</Compiler>
+		<Linker>
+			<Add option="-O2" />
+		</Linker>
+		<Unit filename="examples/Blink/Blink.cpp">
+			<Option target="Blink-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Arduino.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Client.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/HardwareSerial.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/IPAddress.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/IPAddress.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Print.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Print.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Printable.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/RingBuffer.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/RingBuffer.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Server.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Stream.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Stream.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Tone.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Tone.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/UARTClass.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/UARTClass.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/USARTClass.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/USARTClass.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/Udp.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WCharacter.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WInterrupts.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WInterrupts.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WMath.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WMath.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WString.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/WString.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/abi.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/binary.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/hooks.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/itoa.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/itoa.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/main.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/new.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/stm/dtostrf.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/stm/dtostrf.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/stm/pgmspace.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/syscalls.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/syscalls_stm32.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_analog.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_analog.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_constants.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_digital.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_digital.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_private.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_pulse.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_pulse.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_shift.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/wiring_shift.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/CapacitiveSensor/CapacitiveSensor.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/CapacitiveSensor/CapacitiveSensor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/EEPROM/EEPROM.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/Boards.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/Firmata.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/Firmata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/examples/StandardFirmataEthernetPlus/ethernetConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/examples/StandardFirmataEthernet/ethernetConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/examples/StandardFirmataWiFi/wifiConfig.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/EthernetClientStream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/EthernetClientStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/FirmataFeature.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/SerialFirmata.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/SerialFirmata.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/WiFi101Stream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/WiFi101Stream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/WiFiStream.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/WiFiStream.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Firmata/utility/firmataDebug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/DEFAULT.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3CircularBuffer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3CircularBuffer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3IO.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileAccessProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileAccessProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileCellManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileCellManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileClientService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileClientService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileDataNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileDataNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileMockupProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileMockupProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileNetworkRegistry.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileNetworkRegistry.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileSMSProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileSMSProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileServerService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileServerService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileVoiceProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3MobileVoiceProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3SMSService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3SMSService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1AccessProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1AccessProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1BandManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1BandManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1BaseProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1BaseProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1CellManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1CellManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1DataNetworkProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1DataNetworkProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1DirectModemProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1DirectModemProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ModemCore.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ModemCore.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ModemVerification.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ModemVerification.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1MultiClientProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1MultiClientProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1MultiServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1MultiServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1PinManagement.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1PinManagement.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1SMSProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1SMSProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ScanNetworks.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ScanNetworks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ServerProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1ServerProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1VoiceProvider.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV1VoiceProvider.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV2.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3ShieldV2.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3SoftSerial.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3SoftSerial.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3VoiceCallService.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/GSM/src/GSM3VoiceCallService.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/LiquidCrystal/src/LiquidCrystal.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/LiquidCrystal/src/LiquidCrystal.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/SPI/SPI.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/SPI/SPI.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Servo/Servo.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Servo/Servo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Servo/ServoTimers.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/TFT.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/TFT.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/Adafruit_GFX.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/Adafruit_GFX.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/Adafruit_ST7735.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/Adafruit_ST7735.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/PImage.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/TFT/src/utility/glcdfont.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_ebi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/CONFIG/conf_sd_mmc_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/arduino.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/evk1105.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/BOARDS/board.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_fw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_os.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_sdio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wl_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/COMPONENTS/WIFI/HD/wlap_api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/CPU/CYCLE_COUNTER/cycle_counter.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EBI/SMC/smc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EBI/SMC/smc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EIC/eic.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/EIC/eic.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PDCA/pdca.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PDCA/pdca.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm_conf_clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/RTC/rtc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/RTC/rtc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/TC/tc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/TC/tc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/DELAY/delay.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/DELAY/delay.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/dhcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/dns.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/init.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/autoip.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/icmp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/igmp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/inet.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/inet_chksum.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip_addr.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/ipv4/ip_frag.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/memp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/netif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/pbuf.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/raw.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/stats.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp_in.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/tcp_out.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/core/udp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/autoip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/icmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/igmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/inet.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/inet_chksum.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip_addr.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/ipv4/lwip/ip_frag.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/api.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/api_msg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/arch.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/def.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/dhcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/dns.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/err.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/init.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/memp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/memp_std.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netbuf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netdb.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/netifapi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/opt.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/pbuf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/raw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_asn1.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_msg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/snmp_structs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sockets.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/stats.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/sys.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/tcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/tcpip.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/lwip/udp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/etharp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/loopif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/ppp_oe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/include/netif/slipif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/netif/etharp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-1.3.2/src/netif/loopif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/arch/cc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/arch/perf.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/lwipopts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/include/netif/wlif.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/LWIP/lwip-port-1.3.2/HD/if/netif/wlif.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_cpu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_exceptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_interrupts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_io.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/mrepeat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/preprocessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/stringz.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/tpaste.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/conf_isp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/SOFTWARE_FRAMEWORK/UTILS/parts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_tcp.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_tcp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_utils.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ard_utils.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/avr32_spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/board_init.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/board_init.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/cmd_wl.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/cmd_wl.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/console.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/console.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/fw_download.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/fw_download_extflash.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/lwip_setup.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/lwip_setup.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/lwipopts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/main.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/nvram.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/nvram.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/owl_os.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ping.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/ping.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/printf-stdarg.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/printf-stdarg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/timer.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/timer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/top_defs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/trace.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/util.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/util.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/wifi_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/wl_cm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/wl_cm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifiHD/src/wl_definitions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/CONFIG/conf_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/CONFIG/conf_at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/arduino.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/ARDUINO/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/evk1105.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/EVK1105/led.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/BOARDS/board.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/COMPONENTS/MEMORY/DATA_FLASH/AT45DBX/at45dbx_mem.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/FLASHC/flashc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/GPIO/gpio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/INTC/intc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/pm_conf_clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/PM/power_clocks_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/SPI/spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/DRIVERS/USART/usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/SERVICES/MEMORY/CTRL_ACCESS/ctrl_access.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/DEBUG/print_funcs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_cpu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_exceptions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_interrupts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_io.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/LIBS/NEWLIB_ADDONS/INCLUDE/nlao_usart.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/mrepeat.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/preprocessor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/stringz.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/PREPROCESSOR/tpaste.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/compiler.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/conf_isp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/SOFTWARE_FRAMEWORK/UTILS/parts.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/clocks.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/clocks.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/flash_fw.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/nor_flash.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/nor_flash.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/printf-stdarg.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/printf-stdarg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/startup.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/startup.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/extras/wifi_dnld/src/wl_fw.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFi.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiClient.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiClient.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiServer.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiServer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiUdp.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/WiFiUdp.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/debug.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/server_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/server_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/spi_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/spi_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/wifi_drv.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/wifi_drv.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/wifi_spi.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/wl_definitions.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/WiFi/src/utility/wl_types.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Wire/Wire.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/libraries/Wire/Wire.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_class_marks_example/ARM/arm_class_marks_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_class_marks_example/GCC/arm_class_marks_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/arm_convolution_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/arm_convolution_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/ARM/arm_dotproduct_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/GCC/arm_dotproduct_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/arm_fft_bin_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/arm_fft_bin_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/GCC/arm_fft_bin_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/GCC/arm_fft_bin_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/arm_fir_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/arm_fir_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/arm_graphic_equalizer_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/arm_graphic_equalizer_example_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/arm_linear_interp_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/arm_linear_interp_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/arm_matrix_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/arm_signal_converge_data.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/arm_signal_converge_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/math_helper.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/math_helper.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/ARM/arm_sin_cos_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_variance_example/ARM/arm_variance_example_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_const_structs.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f64.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f64.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f64.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_float.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q7.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_float.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal2.S">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix8_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q15.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q31.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f100xb.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f100xe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f101x6.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f101xb.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f101xe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f101xg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f102x6.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f102xb.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xg.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f105xc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f100xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f100xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f102x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f102xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f105xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f107xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f100xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f100xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f101x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f101xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f101xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f101xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f102x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f102xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xb.s">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f105xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f107xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f100xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f100xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f102x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f102xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103x6.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xb.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xe.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xg.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f105xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f107xc.s">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_common_tables.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_const_structs.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_math.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_armcc_V6.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmFunc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmInstr.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmSimd.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/CMSIS/RTOS/Template/cmsis_os.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cec.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_conf_template.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_crc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_eth.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_hcd.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2s.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_irda.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_iwdg.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_nand.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_nor.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pccard.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sd.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_smartcard.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_sdmmc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_eth.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_hcd.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2s.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_irda.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_nand.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_nor.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pccard.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sd.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_smartcard.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_wwdg.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_sdmmc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc_if_template.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc_if_template.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_conf_template.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/chip.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/analog.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/clock.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/digital_io.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/hw_config.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/interrupt.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/spi_com.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/stm32_eeprom.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/stm32f1xx_hal_conf.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/timer.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/twi.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/uart.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/uart_emul.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/usb_device.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_cdc_if.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_conf.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_desc.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/analog.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/clock.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/digital_io.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/hw_config.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/interrupt.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/spi_com.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/stm32_eeprom.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/system_stm32f1xx.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/timer.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/twi.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/uart.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/uart_emul.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/usb_device.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_cdc_if.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_conf.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_desc.c">
+			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/variants/STM32F103C-BluePill/pins_arduino.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/variants/STM32F103C-BluePill/variant.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/variants/STM32F103C-BluePill/variant.h">
+			<Option target="lib-MXBluePillF103C8" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
