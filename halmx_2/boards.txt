@@ -47,7 +47,7 @@ BluePill-F103C8_bl.build.board=NUCLEO_F103C
 BluePill-F103C8_bl.build.core=arduino
 BluePill-F103C8_bl.build.ldscript=linker_scripts/STM32F103C_FLASH_bootloader.ld
 BluePill-F103C8_bl.build.variant=STM32F103C-BluePill
-BluePill-F103C8_bl.build.variant_system_lib=static_libs/libstm32f103c_gcc_rel.a
+BluePill-F103C8_bl.build.variant_system_lib=static_libs/libstm32f103c_gcc_rel_bl.a
 BluePill-F103C8_bl.build.extra_flags=-mthumb -DSTM32F103xB -DSERIAL_USB
 BluePill-F103C8_bl.build.vect-offset=VECT_TAB_OFFSET=0x0
 
