@@ -38,9 +38,9 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 ![](https://github.com/Serasidis/cbp_HALMX_2/blob/master/images/arduino_ide.jpg) 
 
-1. Select `Board'
-2. Select `BluePil-F103C8`
-3. Make sure the upload method is `STLink`
+1. Select `Board`
+2. Select the upload method
+3. In case you choose `with bootloader` select the COM port you have connected the STM32 board.
 
 ##Credits
 - A big thanks to [Evangelos Arkalis](https://github.com/evark) for helping me to understand the CodeBlocks setup process.
@@ -50,6 +50,10 @@ This repository is a testbed for combining the new STM core with Arduino IDE ver
 
 ##Roadmap
 
----
+
+`27 October 2016 ` **[ Added Serial USB support (USBSerial) ]** 
+To use the variant `with bootloader` you need to download and burn the bootloader into the STM32.
+You can download the bootloader from [**Roger's Clark** Github repo](https://github.com/rogerclarkmelbourne/STM32duino-bootloader).
+
 `3 October 2016 ` **[ Initial release ]** 
 

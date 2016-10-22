@@ -24,7 +24,7 @@ NUCLEO-F103RB.build.board=NUCLEO-F103RB
 NUCLEO-F103RB.build.core=arduino
 NUCLEO-F103RB.build.ldscript=linker_scripts/gcc/STM32F103RB_FLASH.ld
 NUCLEO-F103RB.build.variant=STM32F103RB-Nucleo
-NUCLEO-F103RB.build.variant_system_lib=libstm32f1_nucleo-f103rb_gcc_rel.a
+NUCLEO-F103RB.build.variant_system_lib=static_libs/libstm32f1_gcc_rel.a
 NUCLEO-F103RB.build.extra_flags=-mthumb -DSTM32F103xB
 
 ################################################################################
@@ -32,7 +32,41 @@ NUCLEO-F103RB.build.extra_flags=-mthumb -DSTM32F103xB
 ################################################################################
 # BluePill-F103C8 board
 
-BluePill-F103C8.name=BluePill-F103C8
+BluePill-F103C8_bl.name=BluePill-F103C8 (with bootloader)
+
+BluePill-F103C8_bl.vid.0=0x0483
+BluePill-F103C8_bl.pid.0=0x374b
+BluePill-F103C8_bl.node=NODE_F103C8
+
+BluePill-F103C8_bl.upload.protocol=nucleoFlasher
+BluePill-F103C8_bl.upload.maximum_size=57344
+BluePill-F103C8_bl.upload.maximum_data_size=20480
+
+BluePill-F103C8_bl.build.mcu=cortex-m3
+BluePill-F103C8_bl.build.board=NUCLEO_F103C
+BluePill-F103C8_bl.build.core=arduino
+BluePill-F103C8_bl.build.ldscript=linker_scripts/STM32F103C_FLASH_bootloader.ld
+BluePill-F103C8_bl.build.variant=STM32F103C-BluePill
+BluePill-F103C8_bl.build.variant_system_lib=static_libs/libstm32f103c_gcc_rel_bl.a
+BluePill-F103C8_bl.build.extra_flags=-mthumb -DSTM32F103xB -DSERIAL_USB
+BluePill-F103C8_bl.build.vect-offset=VECT_TAB_OFFSET=0x0
+
+#---------------------------- UPLOAD METHODS ---------------------------
+
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod=STM32duino bootloader
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.upload.protocol=maple_dfu
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.upload.tool=maple_upload
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.build.upload_flags=-DSERIAL_USB -DGENERIC_BOOTLOADER
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.build.ldscript=linker_scripts/STM32F103C8_FLASH_bootloader.ld
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.upload.usbID=1EAF:0003
+BluePill-F103C8_bl.menu.upload_method.DFUUploadMethod.upload.altID=2
+
+################################################################################
+
+################################################################################
+# BluePill-F103C8 board
+
+BluePill-F103C8.name=BluePill-F103C8 (without bootloader)
 
 BluePill-F103C8.vid.0=0x0483
 BluePill-F103C8.pid.0=0x374b
@@ -47,8 +81,8 @@ BluePill-F103C8.build.board=NUCLEO_F103C8
 BluePill-F103C8.build.core=arduino
 BluePill-F103C8.build.ldscript=linker_scripts/STM32F103C8_FLASH.ld
 BluePill-F103C8.build.variant=STM32F103C-BluePill
-BluePill-F103C8.build.variant_system_lib=libstm32f103c_stm32f103c_gcc_rel.a
-BluePill-F103C8.build.extra_flags=-mthumb -DSTM32F103xB
+BluePill-F103C8.build.variant_system_lib=static_libs/libstm32f103c_gcc_rel.a
+BluePill-F103C8.build.extra_flags=-mthumb -DSTM32F103xB -DSERIAL_USB
 BluePill-F103C8.build.vect-offset=VECT_TAB_OFFSET=0x0
 
 #---------------------------- UPLOAD METHODS ---------------------------
@@ -57,15 +91,6 @@ BluePill-F103C8.menu.upload_method.STLinkMethod=STLink
 BluePill-F103C8.menu.upload_method.STLinkMethod.upload.protocol=STLink
 BluePill-F103C8.menu.upload_method.STLinkMethod.upload.tool=stlink_upload
 BluePill-F103C8.menu.upload_method.STLinkMethod.build.upload_flags=-DCONFIG_MAPLE_MINI_NO_DISABLE_DEBUG=1 -DSERIAL_USB -DGENERIC_BOOTLOADER
-
-BluePill-F103C8.menu.upload_method.DFUUploadMethod=STM32duino bootloader
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.upload.protocol=maple_dfu
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.upload.tool=maple_upload
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.build.upload_flags=-DSERIAL_USB -DGENERIC_BOOTLOADER
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.build.vect-offset=VECT_TAB_OFFSET=0x2000
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.build.ldscript=linker_scripts/STM32F103C8_FLASH_bootloader.ld
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.upload.usbID=1EAF:0003
-BluePill-F103C8.menu.upload_method.DFUUploadMethod.upload.altID=2
 
 BluePill-F103C8.menu.upload_method.serialMethod=Serial
 BluePill-F103C8.menu.upload_method.serialMethod.upload.protocol=maple_serial

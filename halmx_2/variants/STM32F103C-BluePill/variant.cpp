@@ -113,7 +113,10 @@ extern const PinDescription g_APinDescription[]=
  * UART objects
  */
 
-UARTClass Serial(USART2_E);    //available on PA2/PA3
+#ifdef SERIAL_USB
+USBSerial Serial;    //available on PA9/PA10
+#endif
+//UARTClass Serial(USART2_E);    //available on PA2/PA3
 UARTClass Serial1(USART1_E);   //available on PA9/PA10
 USARTClass Serial2(USART2_E);  //available on PA2/PA3
 
@@ -122,7 +125,9 @@ void serialEvent() { }
 
 void serialEventRun(void)
 {
+#ifdef SERIAL_USB
   if (Serial.available()) serialEvent();
+#endif
 }
 
 // ----------------------------------------------------------------------------
@@ -131,12 +136,24 @@ void serialEventRun(void)
 extern "C" {
 #endif
 
+#ifdef SERIAL_USB
+void USBSerial_Rx_Handler(uint8_t *data, uint16_t len){
+  Serial.CDC_RxHandler(data, len);
+}
+#endif
+
 void __libc_init_array(void);
 
 
 void init( void )
 {
   hw_config_init();
+}
+
+void initVariant(){
+#ifdef SERIAL_USB
+  Serial.begin(9600);
+#endif
 }
 
 #ifdef __cplusplus

@@ -4,12 +4,12 @@
 # For more info:
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
 
-name=STM32F1xx Boards WIP
+name=HALMX 2
 version=1.0.0
 
 # STM compile variables
 # ----------------------
-compiler.libstm.c.flags="-I{build.system.path}/libstm32f103c" "-I{build.system.path}/libstm32f103c/include" "-I{build.system.path}/Drivers/STM32F1xx_HAL_Driver/Inc/" "-I{build.system.path}/Drivers/CMSIS/Include/" "-I{build.system.path}/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+compiler.libstm.c.flags= "-I{build.variant.path}" "-I{build.variant.path}/STM32F103C8-BluePill" "-I{build.system.path}" "-I{build.system.path}/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" "-I{build.system.path}/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" "-I{build.system.path}/include" "-I{build.system.path}/Drivers/STM32F1xx_HAL_Driver/Inc/" "-I{build.system.path}/Drivers/CMSIS/Include/" "-I{build.system.path}/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
 
 compiler.warning_flags=-w
 compiler.warning_flags.none=-w

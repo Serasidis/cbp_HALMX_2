@@ -1,0 +1,1459 @@
+# depslib dependency file v1.0
+1475685394 source:d:\electronics\projects_codeblocks\cbp_halmx_2\examples\usbserial_test\usbserial_test.cpp
+	<Arduino.h>
+
+1475192322 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\arduino.h
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"binary.h"
+	"itoa.h"
+	<chip.h>
+	"wiring_constants.h"
+	"WCharacter.h"
+	"WString.h"
+	"Tone.h"
+	"WMath.h"
+	"HardwareSerial.h"
+	"wiring_pulse.h"
+	"variant.h"
+	"wiring.h"
+	"wiring_digital.h"
+	"wiring_analog.h"
+	"wiring_shift.h"
+	"WInterrupts.h"
+
+1475192325 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\binary.h
+
+1475192326 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\itoa.h
+
+1475673711 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\chip.h
+	"include/hw_config.h"
+	"include/digital_io.h"
+	"include/clock.h"
+	"include/uart_emul.h"
+	"include/uart.h"
+	"include/analog.h"
+	"include/interrupt.h"
+	"include/spi_com.h"
+	"include/timer.h"
+	"include/twi.h"
+	"include/stm32_eeprom.h"
+
+1475586012 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\hw_config.h
+	"stm32f1xx_hal.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal.h
+	"stm32f1xx_hal_conf.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\stm32f1xx_hal_conf.h
+	"stm32f1xx_hal_rcc.h"
+	"stm32f1xx_hal_gpio.h"
+	"stm32f1xx_hal_dma.h"
+	"stm32f1xx_hal_eth.h"
+	"stm32f1xx_hal_can.h"
+	"stm32f1xx_hal_cec.h"
+	"stm32f1xx_hal_cortex.h"
+	"stm32f1xx_hal_adc.h"
+	"stm32f1xx_hal_crc.h"
+	"stm32f1xx_hal_dac.h"
+	"stm32f1xx_hal_flash.h"
+	"stm32f1xx_hal_sram.h"
+	"stm32f1xx_hal_nor.h"
+	"stm32f1xx_hal_i2c.h"
+	"stm32f1xx_hal_i2s.h"
+	"stm32f1xx_hal_iwdg.h"
+	"stm32f1xx_hal_pwr.h"
+	"stm32f1xx_hal_rtc.h"
+	"stm32f1xx_hal_pccard.h"
+	"stm32f1xx_hal_sd.h"
+	"stm32f1xx_hal_nand.h"
+	"stm32f1xx_hal_spi.h"
+	"stm32f1xx_hal_tim.h"
+	"stm32f1xx_hal_uart.h"
+	"stm32f1xx_hal_usart.h"
+	"stm32f1xx_hal_irda.h"
+	"stm32f1xx_hal_smartcard.h"
+	"stm32f1xx_hal_wwdg.h"
+	"stm32f1xx_hal_pcd.h"
+	"stm32f1xx_hal_hcd.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rcc_ex.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_def.h
+	"stm32f1xx.h"
+	"Legacy/stm32_hal_legacy.h"
+	<stdio.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f1xx.h
+	"stm32f100xb.h"
+	"stm32f100xe.h"
+	"stm32f101x6.h"
+	"stm32f101xb.h"
+	"stm32f101xe.h"
+	"stm32f101xg.h"
+	"stm32f102x6.h"
+	"stm32f102xb.h"
+	"stm32f103x6.h"
+	"stm32f103xb.h"
+	"stm32f103xe.h"
+	"stm32f103xg.h"
+	"stm32f105xc.h"
+	"stm32f107xc.h"
+	"stm32f1xx_hal.h"
+
+1475192440 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f100xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192640 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cm3.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1475192641 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cminstr.h
+	"cmsis_armcc.h"
+	"cmsis_armcc_V6.h"
+	"cmsis_gcc.h"
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1475192640 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_armcc.h
+
+1475192640 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_armcc_v6.h
+
+1475192640 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_gcc.h
+
+1475192641 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cmfunc.h
+	"cmsis_armcc.h"
+	"cmsis_armcc_V6.h"
+	"cmsis_gcc.h"
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\system_stm32f1xx.h
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f100xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xg.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f102x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f102xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xg.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f105xc.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f107xc.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192653 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\legacy\stm32_hal_legacy.h
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_gpio_ex.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dma_ex.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_eth.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_can.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_can_ex.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_can_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cec.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cortex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_adc_ex.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_crc.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dac_ex.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_flash_ex.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sram.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_fsmc.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nor.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2c.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2s.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_iwdg.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pwr.h
+	"stm32f1xx_hal_def.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rtc_ex.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pccard.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sd.h
+	"stm32f1xx_ll_sdmmc.h"
+
+1475192653 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_sdmmc.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nand.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_spi.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_tim_ex.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_uart.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_usart.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_irda.h
+	"stm32f1xx_hal_def.h"
+
+1475192651 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_smartcard.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_wwdg.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd.h
+	"stm32f1xx_ll_usb.h"
+	"stm32f1xx_hal_pcd_ex.h"
+
+1475192653 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_usb.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_hcd.h
+	"stm32f1xx_ll_usb.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\digital_io.h
+	"stm32f1xx_hal.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\clock.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\uart_emul.h
+	"stm32f1xx_hal_def.h"
+	"timer.h"
+	"digital_io.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\timer.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\uart.h
+	"stm32f1xx_hal.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\analog.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\interrupt.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\spi_com.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\twi.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\stm32_eeprom.h
+	"stm32f1xx_hal.h"
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_constants.h
+	<stdbool.h>
+
+1475192325 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wcharacter.h
+	<ctype.h>
+
+1475192325 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wstring.h
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<stm/pgmspace.h>
+
+1475192328 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\stm\pgmspace.h
+	<inttypes.h>
+
+1475192324 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\tone.h
+
+1475192325 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wmath.h
+
+1475192322 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\hardwareserial.h
+	<inttypes.h>
+	"Stream.h"
+
+1475192324 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\stream.h
+	<inttypes.h>
+	"Print.h"
+
+1475192323 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\print.h
+	<inttypes.h>
+	<stdio.h>
+	"WString.h"
+	"Printable.h"
+
+1475192323 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\printable.h
+	<stdlib.h>
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_pulse.h
+
+1475658747 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\variant.h
+	"Arduino.h"
+	"USBSerial.h"
+	"UARTClass.h"
+	"USARTClass.h"
+	<syscalls.h>
+
+1475658029 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\usbserial.h
+	"chip.h"
+	"usb_device.h"
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_cdc.h"
+	"usbd_cdc_if.h"
+	"RingBuffer.h"
+	"Stream.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\usb_device.h
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475192659 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1475587473 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\usbd_conf.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475192659 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_core.h
+	"usbd_conf.h"
+	"usbd_def.h"
+	"usbd_ioreq.h"
+	"usbd_ctlreq.h"
+
+1475192659 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1475192659 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_ctlreq.h
+	"usbd_def.h"
+
+1475192666 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\usbd_desc.h
+	"usbd_def.h"
+
+1475192658 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\class\cdc\inc\usbd_cdc.h
+	"usbd_ioreq.h"
+
+1475618456 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\libstm32f103c\include\usbd_cdc_if.h
+	"usbd_cdc.h"
+
+1475192323 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\ringbuffer.h
+	<stdint.h>
+
+1475192324 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\uartclass.h
+	"HardwareSerial.h"
+	"chip.h"
+
+1475192324 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\usartclass.h
+	"UARTClass.h"
+	"RingBuffer.h"
+
+1475192326 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\syscalls.h
+	<stdio.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+
+1475192326 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring.h
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_digital.h
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_analog.h
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_shift.h
+
+1475192325 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\winterrupts.h
+	"Arduino.h"
+
+1475673711 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\chip.h
+	"include/hw_config.h"
+	"include/digital_io.h"
+	"include/clock.h"
+	"include/uart_emul.h"
+	"include/uart.h"
+	"include/analog.h"
+	"include/interrupt.h"
+	"include/spi_com.h"
+	"include/timer.h"
+	"include/twi.h"
+	"include/stm32_eeprom.h"
+
+1475586012 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\hw_config.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\stm32f1xx_hal_conf.h
+	"stm32f1xx_hal_rcc.h"
+	"stm32f1xx_hal_gpio.h"
+	"stm32f1xx_hal_dma.h"
+	"stm32f1xx_hal_eth.h"
+	"stm32f1xx_hal_can.h"
+	"stm32f1xx_hal_cec.h"
+	"stm32f1xx_hal_cortex.h"
+	"stm32f1xx_hal_adc.h"
+	"stm32f1xx_hal_crc.h"
+	"stm32f1xx_hal_dac.h"
+	"stm32f1xx_hal_flash.h"
+	"stm32f1xx_hal_sram.h"
+	"stm32f1xx_hal_nor.h"
+	"stm32f1xx_hal_i2c.h"
+	"stm32f1xx_hal_i2s.h"
+	"stm32f1xx_hal_iwdg.h"
+	"stm32f1xx_hal_pwr.h"
+	"stm32f1xx_hal_rtc.h"
+	"stm32f1xx_hal_pccard.h"
+	"stm32f1xx_hal_sd.h"
+	"stm32f1xx_hal_nand.h"
+	"stm32f1xx_hal_spi.h"
+	"stm32f1xx_hal_tim.h"
+	"stm32f1xx_hal_uart.h"
+	"stm32f1xx_hal_usart.h"
+	"stm32f1xx_hal_irda.h"
+	"stm32f1xx_hal_smartcard.h"
+	"stm32f1xx_hal_wwdg.h"
+	"stm32f1xx_hal_pcd.h"
+	"stm32f1xx_hal_hcd.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\digital_io.h
+	"stm32f1xx_hal.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\clock.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\uart_emul.h
+	"stm32f1xx_hal_def.h"
+	"timer.h"
+	"digital_io.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\timer.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\uart.h
+	"stm32f1xx_hal.h"
+
+1475192664 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\analog.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\interrupt.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\spi_com.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\twi.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\stm32_eeprom.h
+	"stm32f1xx_hal.h"
+
+1475192665 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\usb_device.h
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475587473 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\usbd_conf.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475192666 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\usbd_desc.h
+	"usbd_def.h"
+
+1475618456 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\include\usbd_cdc_if.h
+	"usbd_cdc.h"
+
+1475192325 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\abi.cpp
+	<stdlib.h>
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\hooks.c
+
+1475192322 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\ipaddress.cpp
+	<Arduino.h>
+	<IPAddress.h>
+
+1475192323 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\ipaddress.h
+	<stdint.h>
+	"Printable.h"
+	"WString.h"
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\itoa.c
+	"itoa.h"
+	<string.h>
+
+1475508935 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\main.cpp
+	"Arduino.h"
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\new.cpp
+	<stdlib.h>
+
+1475192323 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\print.cpp
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<math.h>
+	"Arduino.h"
+	"Print.h"
+
+1475192323 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\ringbuffer.cpp
+	"RingBuffer.h"
+	<string.h>
+
+1475192327 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\stm\dtostrf.c
+	<stdio.h>
+
+1475192324 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\stream.cpp
+	"Arduino.h"
+	"Stream.h"
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\syscalls_stm32.c
+	"syscalls.h"
+	<stdio.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+	"Arduino.h"
+
+1475192324 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\tone.cpp
+	"Arduino.h"
+
+1475192324 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\uartclass.cpp
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"UARTClass.h"
+	"Arduino.h"
+
+1475192324 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\usartclass.cpp
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"USARTClass.h"
+	"chip.h"
+
+1475668108 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\usbserial.cpp
+	"chip.h"
+	<USBSerial.h>
+	"variant.h"
+
+1475192325 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\winterrupts.c
+	"WInterrupts.h"
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring.c
+	"Arduino.h"
+
+1475192326 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_analog.c
+	"Arduino.h"
+
+1475192327 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_digital.c
+	"Arduino.h"
+
+1475192327 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_pulse.cpp
+	"Arduino.h"
+	"wiring_private.h"
+
+1475192327 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_private.h
+	<stdint.h>
+	<stdio.h>
+	<stdarg.h>
+	<chip.h>
+	"wiring_constants.h"
+	"HardwareSerial.h"
+
+1475192327 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wiring_shift.c
+	"Arduino.h"
+
+1475192325 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wmath.cpp
+	"stdlib.h"
+	"stdint.h"
+	"WMath.h"
+
+1475192325 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\wstring.cpp
+	"WString.h"
+	"itoa.h"
+	"stm/dtostrf.h"
+
+1475192328 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\cores\arduino\stm\dtostrf.h
+
+1475192445 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\source\templates\gcc\startup_stm32f103xb.s
+
+1475192653 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal.c
+	"stm32f1xx_hal.h"
+
+1475192653 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_adc.c
+	"stm32f1xx_hal.h"
+
+1475192653 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_adc_ex.c
+	"stm32f1xx_hal.h"
+
+1475192653 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_can.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_cec.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_cortex.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_crc.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_dac.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_dac_ex.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_dma.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_eth.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_flash.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_flash_ex.c
+	"stm32f1xx_hal.h"
+
+1475192654 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_gpio.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_gpio_ex.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_hcd.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_i2c.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_i2s.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_irda.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_iwdg.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_msp_template.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_nand.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_nor.c
+	"stm32f1xx_hal.h"
+
+1475192655 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_pccard.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_pcd.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_pcd_ex.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_pwr.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_rcc.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_rcc_ex.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_rtc.c
+	"stm32f1xx_hal.h"
+
+1475192656 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_rtc_ex.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_sd.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_smartcard.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_spi.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_spi_ex.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_sram.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_tim.c
+	"stm32f1xx_hal.h"
+
+1475192657 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_tim_ex.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_uart.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_usart.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_hal_wwdg.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_ll_fsmc.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_ll_sdmmc.c
+	"stm32f1xx_hal.h"
+
+1475192658 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\src\stm32f1xx_ll_usb.c
+	"stm32f1xx_hal.h"
+
+1475192659 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\class\cdc\src\usbd_cdc.c
+	"usbd_cdc.h"
+	"usbd_desc.h"
+	"usbd_ctlreq.h"
+
+1475192659 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\class\cdc\src\usbd_cdc_if_template.c
+	"usbd_cdc_if_template.h"
+
+1475192659 d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\class\cdc\inc\usbd_cdc_if_template.h
+	"usbd_cdc.h"
+
+1475192660 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\src\usbd_conf_template.c
+	"usbd_core.h"
+
+1475577467 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\src\usbd_core.c
+	"usbd_core.h"
+
+1475192660 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\src\usbd_ctlreq.c
+	"usbd_ctlreq.h"
+	"usbd_ioreq.h"
+
+1475192660 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\src\usbd_ioreq.c
+	"usbd_ioreq.h"
+
+1475192666 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\analog.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"analog.h"
+	"timer.h"
+
+1475192666 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\clock.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"timer.h"
+	"digital_io.h"
+
+1475192666 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\digital_io.c
+	"stm32f1xx.h"
+	"hw_config.h"
+
+1475668544 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\hw_config.c
+	"stm32f1xx.h"
+	"hw_config.h"
+
+1475192666 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\interrupt.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"interrupt.h"
+
+1475192666 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\spi_com.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"spi_com.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\stm32_eeprom.c
+	"stm32_eeprom.h"
+	<string.h>
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\system_stm32f1xx.c
+	"stm32f1xx.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\timer.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"timer.h"
+	"digital_io.h"
+	"clock.h"
+	"analog.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\twi.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"twi.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\uart.c
+	"stm32f1xx.h"
+	"hw_config.h"
+	"uart.h"
+	"uart_emul.h"
+	"timer.h"
+	"digital_io.h"
+	"interrupt.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\uart_emul.c
+	"stm32f1xx_hal.h"
+	"uart_emul.h"
+	"interrupt.h"
+	"uart.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\usb_device.c
+	"usb_device.h"
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_cdc.h"
+	"usbd_cdc_if.h"
+
+1475683450 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\usbd_cdc_if.c
+	"usbd_cdc_if.h"
+	<chip.h>
+
+1475587481 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\usbd_conf.c
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_cdc.h"
+
+1475192667 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\source\usbd_desc.c
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_conf.h"
+
+1475659371 source:d:\electronics\projects_codeblocks\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\variant.cpp
+	"variant.h"
+
+1475937453 source:c:\sd\electronics\codeblocks_projects\cbp_halmx_2\examples\usbserial_test\usbserial_test.cpp
+	<Arduino.h>
+
+1475192322 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\arduino.h
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"binary.h"
+	"itoa.h"
+	<chip.h>
+	"wiring_constants.h"
+	"WCharacter.h"
+	"WString.h"
+	"Tone.h"
+	"WMath.h"
+	"HardwareSerial.h"
+	"wiring_pulse.h"
+	"variant.h"
+	"wiring.h"
+	"wiring_digital.h"
+	"wiring_analog.h"
+	"wiring_shift.h"
+	"WInterrupts.h"
+
+1475192325 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\binary.h
+
+1475192326 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\itoa.h
+
+1475957630 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\chip.h
+	"include/hw_config.h"
+	"include/digital_io.h"
+	"include/clock.h"
+	"include/uart_emul.h"
+	"include/uart.h"
+	"include/analog.h"
+	"include/interrupt.h"
+	"include/spi_com.h"
+	"include/timer.h"
+	"include/twi.h"
+	"include/stm32_eeprom.h"
+	"source/usbd_conf.c"
+
+1475586012 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\hw_config.h
+	"stm32f1xx_hal.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal.h
+	"stm32f1xx_hal_conf.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\stm32f1xx_hal_conf.h
+	"stm32f1xx_hal_rcc.h"
+	"stm32f1xx_hal_gpio.h"
+	"stm32f1xx_hal_dma.h"
+	"stm32f1xx_hal_eth.h"
+	"stm32f1xx_hal_can.h"
+	"stm32f1xx_hal_cec.h"
+	"stm32f1xx_hal_cortex.h"
+	"stm32f1xx_hal_adc.h"
+	"stm32f1xx_hal_crc.h"
+	"stm32f1xx_hal_dac.h"
+	"stm32f1xx_hal_flash.h"
+	"stm32f1xx_hal_sram.h"
+	"stm32f1xx_hal_nor.h"
+	"stm32f1xx_hal_i2c.h"
+	"stm32f1xx_hal_i2s.h"
+	"stm32f1xx_hal_iwdg.h"
+	"stm32f1xx_hal_pwr.h"
+	"stm32f1xx_hal_rtc.h"
+	"stm32f1xx_hal_pccard.h"
+	"stm32f1xx_hal_sd.h"
+	"stm32f1xx_hal_nand.h"
+	"stm32f1xx_hal_spi.h"
+	"stm32f1xx_hal_tim.h"
+	"stm32f1xx_hal_uart.h"
+	"stm32f1xx_hal_usart.h"
+	"stm32f1xx_hal_irda.h"
+	"stm32f1xx_hal_smartcard.h"
+	"stm32f1xx_hal_wwdg.h"
+	"stm32f1xx_hal_pcd.h"
+	"stm32f1xx_hal_hcd.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rcc_ex.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_def.h
+	"stm32f1xx.h"
+	"Legacy/stm32_hal_legacy.h"
+	<stdio.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f1xx.h
+	"stm32f100xb.h"
+	"stm32f100xe.h"
+	"stm32f101x6.h"
+	"stm32f101xb.h"
+	"stm32f101xe.h"
+	"stm32f101xg.h"
+	"stm32f102x6.h"
+	"stm32f102xb.h"
+	"stm32f103x6.h"
+	"stm32f103xb.h"
+	"stm32f103xe.h"
+	"stm32f103xg.h"
+	"stm32f105xc.h"
+	"stm32f107xc.h"
+	"stm32f1xx_hal.h"
+
+1475192440 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f100xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192640 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cm3.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1475192641 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cminstr.h
+	"cmsis_armcc.h"
+	"cmsis_armcc_V6.h"
+	"cmsis_gcc.h"
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1475192640 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_armcc.h
+
+1475192640 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_armcc_v6.h
+
+1475192640 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\cmsis_gcc.h
+
+1475192641 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\include\core_cmfunc.h
+	"cmsis_armcc.h"
+	"cmsis_armcc_V6.h"
+	"cmsis_gcc.h"
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+	<cmsis_csm.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\system_stm32f1xx.h
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f100xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f101xg.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f102x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f102xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192441 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103x6.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xe.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f103xg.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f105xc.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192442 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\cmsis\device\st\stm32f1xx\include\stm32f107xc.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1475192653 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\legacy\stm32_hal_legacy.h
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rcc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_gpio_ex.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_gpio_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dma_ex.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dma_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_eth.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_can.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_can_ex.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_can_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cec.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_cortex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_adc_ex.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_adc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192647 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_crc.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dac_ex.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_dac_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192648 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_flash_ex.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_flash_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sram.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_fsmc.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nor.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2c.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_i2s.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_iwdg.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pwr.h
+	"stm32f1xx_hal_def.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rtc_ex.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_rtc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pccard.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_sd.h
+	"stm32f1xx_ll_sdmmc.h"
+
+1475192653 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_sdmmc.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_nand.h
+	"stm32f1xx_ll_fsmc.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_spi.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_tim_ex.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_tim_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_uart.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_usart.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_irda.h
+	"stm32f1xx_hal_def.h"
+
+1475192651 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_smartcard.h
+	"stm32f1xx_hal_def.h"
+
+1475192652 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_wwdg.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd.h
+	"stm32f1xx_ll_usb.h"
+	"stm32f1xx_hal_pcd_ex.h"
+
+1475192653 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_ll_usb.h
+	"stm32f1xx_hal_def.h"
+
+1475192650 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_pcd_ex.h
+	"stm32f1xx_hal_def.h"
+
+1475192649 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\drivers\stm32f1xx_hal_driver\inc\stm32f1xx_hal_hcd.h
+	"stm32f1xx_ll_usb.h"
+
+1475192664 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\digital_io.h
+	"stm32f1xx_hal.h"
+
+1475192664 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\clock.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\uart_emul.h
+	"stm32f1xx_hal_def.h"
+	"timer.h"
+	"digital_io.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\timer.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\uart.h
+	"stm32f1xx_hal.h"
+
+1475192664 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\analog.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\interrupt.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\spi_com.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\twi.h
+	"stm32f1xx_hal.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\stm32_eeprom.h
+	"stm32f1xx_hal.h"
+
+1475953439 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\source\usbd_conf.c
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_cdc.h"
+
+1475192659 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1475952414 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\usbd_conf.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475192659 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_core.h
+	"usbd_conf.h"
+	"usbd_def.h"
+	"usbd_ioreq.h"
+	"usbd_ctlreq.h"
+
+1475192659 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1475192659 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\core\inc\usbd_ctlreq.h
+	"usbd_def.h"
+
+1475192658 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\middlewares\st\stm32_usb_device_library\class\cdc\inc\usbd_cdc.h
+	"usbd_ioreq.h"
+
+1475192327 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring_constants.h
+	<stdbool.h>
+
+1475192325 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wcharacter.h
+	<ctype.h>
+
+1475192325 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wstring.h
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<stm/pgmspace.h>
+
+1475192328 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\stm\pgmspace.h
+	<inttypes.h>
+
+1475192324 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\tone.h
+
+1475192325 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wmath.h
+
+1475192322 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\hardwareserial.h
+	<inttypes.h>
+	"Stream.h"
+
+1475192324 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\stream.h
+	<inttypes.h>
+	"Print.h"
+
+1475192323 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\print.h
+	<inttypes.h>
+	<stdio.h>
+	"WString.h"
+	"Printable.h"
+
+1475192323 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\printable.h
+	<stdlib.h>
+
+1475192327 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring_pulse.h
+
+1475951107 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\variants\stm32f103c-bluepill\variant.h
+	"Arduino.h"
+	"USBSerial.h"
+	"UARTClass.h"
+	"USARTClass.h"
+	<syscalls.h>
+
+1475953643 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\usbserial.h
+	"usb_device.h"
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_cdc.h"
+	"usbd_cdc_if.h"
+	"RingBuffer.h"
+	"Stream.h"
+	"chip.h"
+
+1475192665 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\usb_device.h
+	"stm32f1xx.h"
+	"stm32f1xx_hal.h"
+	"usbd_def.h"
+
+1475192666 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\usbd_desc.h
+	"usbd_def.h"
+
+1475743420 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\system\include\usbd_cdc_if.h
+	"usbd_cdc.h"
+
+1475192323 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\ringbuffer.h
+	<stdint.h>
+
+1475192324 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\uartclass.h
+	"HardwareSerial.h"
+	"chip.h"
+
+1475192324 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\usartclass.h
+	"UARTClass.h"
+	"RingBuffer.h"
+
+1475192326 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\syscalls.h
+	<stdio.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+
+1475192326 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring.h
+
+1475192327 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring_digital.h
+
+1475192327 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring_analog.h
+
+1475192327 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\wiring_shift.h
+
+1475192325 c:\sd\electronics\codeblocks_projects\cbp_halmx_2\halmx_2\cores\arduino\winterrupts.h
+	"Arduino.h"
+

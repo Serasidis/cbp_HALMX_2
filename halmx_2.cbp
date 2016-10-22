@@ -7,7 +7,7 @@
 		<Option compiler="arm-elf-gcc" />
 		<Build>
 			<Target title="lib-MXBluePillF103C8">
-				<Option output="halmx_2/variants/STM32F103C-BluePill/stm32f103c_stm32f103c_gcc_rel" prefix_auto="1" extension_auto="1" />
+				<Option output="halmx_2/variants/STM32F103C-BluePill/static_libs/stm32f103c_gcc_rel" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="lib/MXBluePillF103C8/obj" />
 				<Option type="2" />
@@ -23,9 +23,7 @@
 					<Add option="-DSTM32F103xB" />
 					<Add option="-DUSE_USART1" />
 					<Add option="-DUSE_USART2" />
-					<Add option="-DUSE_USBSerial" />
-					<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" />
-					<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" />
+					<Add option="-DSERIAL_USB" />
 				</Compiler>
 			</Target>
 			<Target title="Blink-MXBluePillF103C8">
@@ -44,7 +42,7 @@
 					<Add option="-DSTM32F103xB" />
 					<Add option="-DUSE_USART1" />
 					<Add option="-DUSE_USART2" />
-					<Add option="-DUSE_USBSerial" />
+					<Add option="-DSERIAL_USB" />
 				</Compiler>
 				<Linker>
 					<Add option="-O2" />
@@ -62,11 +60,162 @@
 					<Add option="-Wl,--warn-unresolved-symbols" />
 					<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref,--gc-sections,-zmuldefs" />
 					<Add option="-Thalmx_2/variants/STM32F103C-BluePill/linker_scripts/STM32F103C8_FLASH.ld" />
-					<Add option="-Wl,-whole-archive lib/MXBluePillF103C8/libcore.a -Wl,-no-whole-archive" />
+					<Add option="-Wl,-whole-archive halmx_2/variants/STM32F103C-BluePill/static_libs/libstm32f103c_gcc_rel.a -Wl,-no-whole-archive" />
 					<Add option="-lstdc++ -lsupc++ -lm -lgcc -lc -lnosys" />
 				</Linker>
 				<ExtraCommands>
 					<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+					<Add after='cmd /c &quot;arm-none-eabi-size $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).size&quot;' />
+					<Add after="arm-none-eabi-objcopy  -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
+				</ExtraCommands>
+			</Target>
+			<Target title="USBSerial-MXBluePillF103C8">
+				<Option output="examples/USBSerial_test/MXBluePillF103C8/USBSerial" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="examples/USBSerial_test/MXBluePillF103C8/obj" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DSERIAL_USB" />
+				</Compiler>
+				<Linker>
+					<Add option="-O2" />
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-msoft-float" />
+					<Add option="-Wl,--gc-sections" />
+					<Add option="--specs=nano.specs" />
+					<Add option="-Wl,--cref" />
+					<Add option="-Wl,--check-sections" />
+					<Add option="-Wl,--unresolved-symbols=report-all" />
+					<Add option="-Wl,--warn-common" />
+					<Add option="-Wl,--warn-section-align" />
+					<Add option="-Wl,--warn-unresolved-symbols" />
+					<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref,--gc-sections,-zmuldefs" />
+					<Add option="-Thalmx_2/variants/STM32F103C-BluePill/linker_scripts/STM32F103C8_FLASH.ld" />
+					<Add option="-Wl,-whole-archive halmx_2/variants/STM32F103C-BluePill/static_libs/libstm32f103c_gcc_rel.a -Wl,-no-whole-archive" />
+					<Add option="-lstdc++ -lsupc++ -lm -lgcc -lc -lnosys" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+					<Add after='cmd /c &quot;arm-none-eabi-size $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).size&quot;' />
+					<Add after="arm-none-eabi-objcopy  -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
+				</ExtraCommands>
+			</Target>
+			<Target title="lib-MXBluePillF103C8-bootloader">
+				<Option output="halmx_2/variants/STM32F103C-BluePill/static_libs/stm32f103c_gcc_rel_bl" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="lib/MXBluePillF103C8/obj" />
+				<Option type="2" />
+				<Option compiler="arm-elf-gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DSERIAL_USB" />
+					<Add option='-DVECT_TAB_OFFSET=&quot;0x2000&quot;' />
+				</Compiler>
+			</Target>
+			<Target title="USBSerial-MXBluePillF103C8_bt">
+				<Option output="examples/USBSerial_test/MXBluePillF103C8/USBSerial" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="examples/USBSerial_test/MXBluePillF103C8/obj" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DSERIAL_USB" />
+					<Add option='-DVECT_TAB_OFFSET=&quot;0x2000&quot;' />
+				</Compiler>
+				<Linker>
+					<Add option="-O2" />
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-msoft-float" />
+					<Add option="-Wl,--gc-sections" />
+					<Add option="--specs=nano.specs" />
+					<Add option="-Wl,--cref" />
+					<Add option="-Wl,--check-sections" />
+					<Add option="-Wl,--unresolved-symbols=report-all" />
+					<Add option="-Wl,--warn-common" />
+					<Add option="-Wl,--warn-section-align" />
+					<Add option="-Wl,--warn-unresolved-symbols" />
+					<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref,--gc-sections,-zmuldefs" />
+					<Add option="-Thalmx_2/variants/STM32F103C-BluePill/linker_scripts/STM32F103C8_FLASH_bootloader.ld" />
+					<Add option="-Wl,-whole-archive halmx_2/variants/STM32F103C-BluePill/static_libs/libstm32f103c_gcc_rel_bl.a -Wl,-no-whole-archive" />
+					<Add option="-lstdc++ -lsupc++ -lm -lgcc -lc -lnosys" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+					<Add after='cmd /c &quot;arm-none-eabi-size $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).size&quot;' />
+					<Add after="arm-none-eabi-objcopy  -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Test_USBSerial-MXBluePillF103C8">
+				<Option output="examples/USBSerial_test2/MXBluePillF103C8/USBSerial" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="examples/USBSerial_test2/MXBluePillF103C8/obj" />
+				<Option type="5" />
+				<Option compiler="arm-elf-gcc" />
+				<Compiler>
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-mthumb-interwork" />
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-DSTM32F103xB" />
+					<Add option="-DUSE_USART1" />
+					<Add option="-DUSE_USART2" />
+					<Add option="-DSERIAL_USB" />
+				</Compiler>
+				<Linker>
+					<Add option="-O2" />
+					<Add option="-mcpu=cortex-m3" />
+					<Add option="-mthumb" />
+					<Add option="-mfpu=vfp" />
+					<Add option="-msoft-float" />
+					<Add option="-Wl,--gc-sections" />
+					<Add option="--specs=nano.specs" />
+					<Add option="-Wl,--cref" />
+					<Add option="-Wl,--check-sections" />
+					<Add option="-Wl,--unresolved-symbols=report-all" />
+					<Add option="-Wl,--warn-common" />
+					<Add option="-Wl,--warn-section-align" />
+					<Add option="-Wl,--warn-unresolved-symbols" />
+					<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref,--gc-sections,-zmuldefs" />
+					<Add option="-Thalmx_2/variants/STM32F103C-BluePill/linker_scripts/STM32F103C8_FLASH.ld" />
+					<Add option="-lstdc++ -lsupc++ -lm -lgcc -lc -lnosys" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="arm-none-eabi-size $(TARGET_OUTPUT_FILE)" />
+					<Add after='cmd /c &quot;arm-none-eabi-size $(TARGET_OUTPUT_FILE) &gt; $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).size&quot;' />
 					<Add after="arm-none-eabi-objcopy  -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).bin" />
 				</ExtraCommands>
 			</Target>
@@ -94,14 +243,16 @@
 			<Add option="-fno-rtti" />
 			<Add option="-DUSE_HAL_DRIVER" />
 			<Add option="-D__STRICT_ANSI__" />
-			<Add directory="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include" />
-			<Add directory="halmx_2/cores/arduino/stm" />
 			<Add directory="halmx_2/cores/arduino" />
+			<Add directory="halmx_2/cores/arduino/stm" />
+			<Add directory="halmx_2/system" />
+			<Add directory="halmx_2/system/include" />
 			<Add directory="halmx_2/system/Drivers/CMSIS/Include" />
-			<Add directory="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" />
 			<Add directory="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc" />
-			<Add directory="halmx_2/system/libstm32f103c/include" />
-			<Add directory="halmx_2/system/libstm32f103c" />
+			<Add directory="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" />
+			<Add directory="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include" />
+			<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" />
+			<Add directory="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" />
 			<Add directory="halmx_2/variants/STM32F103C-BluePill" />
 		</Compiler>
 		<Linker>
@@ -110,167 +261,284 @@
 		<Unit filename="examples/Blink/Blink.cpp">
 			<Option target="Blink-MXBluePillF103C8" />
 		</Unit>
+		<Unit filename="examples/USBSerial_test/USBSerial_test.cpp">
+			<Option target="USBSerial-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Arduino.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Client.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/HardwareSerial.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/IPAddress.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/IPAddress.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Print.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Print.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Printable.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/RingBuffer.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/RingBuffer.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Server.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Stream.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Stream.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Tone.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Tone.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/UARTClass.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/UARTClass.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/USARTClass.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/USARTClass.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/USBSerial.cpp">
+			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+		</Unit>
+		<Unit filename="halmx_2/cores/arduino/USBSerial.h">
+			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/Udp.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WCharacter.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WInterrupts.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WInterrupts.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WMath.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WMath.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WString.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/WString.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/abi.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/binary.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/hooks.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/itoa.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/itoa.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/main.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/new.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/stm/dtostrf.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/stm/dtostrf.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/stm/pgmspace.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/syscalls.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/syscalls_stm32.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_analog.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_analog.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_constants.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_digital.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_digital.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_private.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_pulse.cpp">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_pulse.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_shift.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/cores/arduino/wiring_shift.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/libraries/CapacitiveSensor/CapacitiveSensor.cpp">
 			<Option target="&lt;{~None~}&gt;" />
@@ -1420,1226 +1688,6 @@
 		<Unit filename="halmx_2/libraries/Wire/Wire.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_class_marks_example/ARM/arm_class_marks_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_class_marks_example/GCC/arm_class_marks_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/arm_convolution_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/arm_convolution_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/ARM/arm_dotproduct_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_dotproduct_example/GCC/arm_dotproduct_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/arm_fft_bin_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/ARM/arm_fft_bin_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/GCC/arm_fft_bin_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/GCC/arm_fft_bin_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/arm_fir_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/arm_fir_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/arm_graphic_equalizer_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/arm_graphic_equalizer_example_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/arm_linear_interp_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/arm_linear_interp_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/arm_matrix_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/arm_signal_converge_data.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/arm_signal_converge_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/math_helper.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM/math_helper.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_sin_cos_example/ARM/arm_sin_cos_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Examples/arm_variance_example/ARM/arm_variance_example_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_const_structs.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f64.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f64.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f64.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_float.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q7.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_float.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal2.S">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix8_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q15.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q31.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f100xb.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -2668,7 +1716,10 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h">
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -2684,50 +1735,10 @@
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h">
-			<Option target="lib-MXBluePillF103C8" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f100xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f100xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f101xg.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f102x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f102xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f103xg.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f105xc.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/arm/startup_stm32f107xc.s">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f100xb.s">
@@ -2758,7 +1769,10 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xb.s">
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f103xe.s">
 			<Option target="&lt;{~None~}&gt;" />
@@ -2772,594 +1786,831 @@
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/gcc/startup_stm32f107xc.s">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f100xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f100xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f101xg.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f102x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f102xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103x6.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xb.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xe.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f103xg.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f105xc.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/iar/startup_stm32f107xc.s">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c">
 			<Option compilerVar="CC" />
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_common_tables.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_const_structs.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/arm_math.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_armcc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_armcc_V6.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/cmsis_gcc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm0.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm0plus.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm3.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm4.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cm7.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmFunc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmInstr.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_cmSimd.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_sc000.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/CMSIS/Include/core_sc300.h">
 			<Option target="lib-MXBluePillF103C8" />
-		</Unit>
-		<Unit filename="halmx_2/system/Drivers/CMSIS/RTOS/Template/cmsis_os.h">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cec.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_conf_template.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_crc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_eth.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_hcd.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2s.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_irda.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_iwdg.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_nand.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_nor.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pccard.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sd.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_smartcard.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_sdmmc.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cec.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_crc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_eth.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_hcd.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2s.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_irda.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_msp_template.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_nand.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_nor.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pccard.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sd.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_smartcard.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_wwdg.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_sdmmc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h">
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc_if_template.h">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c">
 			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc_if_template.c">
 			<Option compilerVar="CC" />
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_conf_template.h">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h">
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h">
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h">
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h">
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c">
 			<Option compilerVar="CC" />
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c">
 			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c">
 			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/system/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c">
 			<Option compilerVar="CC" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/chip.h">
+		<Unit filename="halmx_2/system/chip.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/analog.h">
+		<Unit filename="halmx_2/system/include/analog.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/clock.h">
+		<Unit filename="halmx_2/system/include/clock.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/digital_io.h">
+		<Unit filename="halmx_2/system/include/digital_io.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/hw_config.h">
+		<Unit filename="halmx_2/system/include/hw_config.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/interrupt.h">
+		<Unit filename="halmx_2/system/include/interrupt.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/spi_com.h">
+		<Unit filename="halmx_2/system/include/spi_com.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/stm32_eeprom.h">
+		<Unit filename="halmx_2/system/include/stm32_eeprom.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/stm32f1xx_hal_conf.h">
+		<Unit filename="halmx_2/system/include/stm32f1xx_hal_conf.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/timer.h">
+		<Unit filename="halmx_2/system/include/system_stm32f1xx.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/twi.h">
+		<Unit filename="halmx_2/system/include/timer.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/uart.h">
+		<Unit filename="halmx_2/system/include/twi.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/uart_emul.h">
+		<Unit filename="halmx_2/system/include/uart.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/usb_device.h">
+		<Unit filename="halmx_2/system/include/uart_emul.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_cdc_if.h">
+		<Unit filename="halmx_2/system/include/usb_device.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_conf.h">
+		<Unit filename="halmx_2/system/include/usbd_cdc_if.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/include/usbd_desc.h">
+		<Unit filename="halmx_2/system/include/usbd_conf.h">
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/analog.c">
+		<Unit filename="halmx_2/system/include/usbd_desc.h">
+			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
+		</Unit>
+		<Unit filename="halmx_2/system/source/analog.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/clock.c">
+		<Unit filename="halmx_2/system/source/clock.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/digital_io.c">
+		<Unit filename="halmx_2/system/source/digital_io.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/hw_config.c">
+		<Unit filename="halmx_2/system/source/hw_config.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/interrupt.c">
+		<Unit filename="halmx_2/system/source/interrupt.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/spi_com.c">
+		<Unit filename="halmx_2/system/source/spi_com.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/stm32_eeprom.c">
+		<Unit filename="halmx_2/system/source/stm32_eeprom.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/system_stm32f1xx.c">
+		<Unit filename="halmx_2/system/source/system_stm32f1xx.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/timer.c">
+		<Unit filename="halmx_2/system/source/timer.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/twi.c">
+		<Unit filename="halmx_2/system/source/twi.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/uart.c">
+		<Unit filename="halmx_2/system/source/uart.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/uart_emul.c">
+		<Unit filename="halmx_2/system/source/uart_emul.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/usb_device.c">
+		<Unit filename="halmx_2/system/source/usb_device.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_cdc_if.c">
+		<Unit filename="halmx_2/system/source/usbd_cdc_if.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_conf.c">
+		<Unit filename="halmx_2/system/source/usbd_conf.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
-		<Unit filename="halmx_2/system/libstm32f103c/source/usbd_desc.c">
+		<Unit filename="halmx_2/system/source/usbd_desc.c">
 			<Option compilerVar="CC" />
 			<Option target="lib-MXBluePillF103C8" />
+			<Option target="lib-MXBluePillF103C8-bootloader" />
 		</Unit>
 		<Unit filename="halmx_2/variants/STM32F103C-BluePill/pins_arduino.h">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
+			<Option target="USBSerial-MXBluePillF103C8" />
+			<Option target="Blink-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/variants/STM32F103C-BluePill/variant.cpp">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+			<Option target="Blink-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
+			<Option target="USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Unit filename="halmx_2/variants/STM32F103C-BluePill/variant.h">
-			<Option target="lib-MXBluePillF103C8" />
+			<Option target="Test_USBSerial-MXBluePillF103C8" />
+			<Option target="Blink-MXBluePillF103C8" />
+			<Option target="USBSerial-MXBluePillF103C8_bt" />
+			<Option target="USBSerial-MXBluePillF103C8" />
 		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<lib_finder disable_auto="1" />
-			<debugger />
+			<debugger>
+				<remote_debugging>
+					<options conn_type="0" serial_baud="115200" additional_cmds="monitor halt&#x0A;load ./bin/Debug/iotogglem0&#x0A;file ./bin/Debug/iotogglem0&#x0A;monitor sleep 1000&#x0A;monitor reset" />
+				</remote_debugging>
+			</debugger>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

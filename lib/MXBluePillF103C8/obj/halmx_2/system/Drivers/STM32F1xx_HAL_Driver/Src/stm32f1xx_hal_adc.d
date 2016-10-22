@@ -1,7 +1,7 @@
 lib\MXBluePillF103C8\obj\halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc.o: \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc.c \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal.h \
- halmx_2\system\libstm32f103c\include/stm32f1xx_hal_conf.h \
+ halmx_2\system\include/stm32f1xx_hal_conf.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_rcc.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_def.h \
  halmx_2\system\Drivers\CMSIS\Device\ST\STM32F1xx\Include/stm32f1xx.h \
@@ -34,7 +34,7 @@ lib\MXBluePillF103C8\obj\halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal.h:
 
-halmx_2\system\libstm32f103c\include/stm32f1xx_hal_conf.h:
+halmx_2\system\include/stm32f1xx_hal_conf.h:
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_rcc.h:
 

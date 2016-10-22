@@ -1,10 +1,9 @@
 lib\MXBluePillF103C8\obj\halmx_2\cores\arduino\main.o: \
  halmx_2\cores\arduino\main.cpp halmx_2\cores\arduino\Arduino.h \
  halmx_2\cores\arduino\binary.h halmx_2\cores\arduino\itoa.h \
- halmx_2\system\libstm32f103c/chip.h \
- halmx_2\system\libstm32f103c/include/hw_config.h \
+ halmx_2\system/chip.h halmx_2\system/include/hw_config.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal.h \
- halmx_2\system\libstm32f103c\include/stm32f1xx_hal_conf.h \
+ halmx_2\system\include/stm32f1xx_hal_conf.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_rcc.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_def.h \
  halmx_2\system\Drivers\CMSIS\Device\ST\STM32F1xx\Include/stm32f1xx.h \
@@ -34,19 +33,14 @@ lib\MXBluePillF103C8\obj\halmx_2\cores\arduino\main.o: \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pcd.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_ll_usb.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pcd_ex.h \
- halmx_2\system\libstm32f103c/include/digital_io.h \
- halmx_2\system\libstm32f103c/include/clock.h \
- halmx_2\system\libstm32f103c/include/uart_emul.h \
+ halmx_2\system/include/digital_io.h halmx_2\system/include/clock.h \
+ halmx_2\system/include/uart_emul.h \
  halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_def.h \
- halmx_2\system\libstm32f103c/include/timer.h \
- halmx_2\system\libstm32f103c/include/digital_io.h \
- halmx_2\system\libstm32f103c/include/uart.h \
- halmx_2\system\libstm32f103c/include/analog.h \
- halmx_2\system\libstm32f103c/include/interrupt.h \
- halmx_2\system\libstm32f103c/include/spi_com.h \
- halmx_2\system\libstm32f103c/include/timer.h \
- halmx_2\system\libstm32f103c/include/twi.h \
- halmx_2\system\libstm32f103c/include/stm32_eeprom.h \
+ halmx_2\system/include/timer.h halmx_2\system/include/digital_io.h \
+ halmx_2\system/include/uart.h halmx_2\system/include/analog.h \
+ halmx_2\system/include/interrupt.h halmx_2\system/include/spi_com.h \
+ halmx_2\system/include/timer.h halmx_2\system/include/twi.h \
+ halmx_2\system/include/stm32_eeprom.h \
  halmx_2\cores\arduino\wiring_constants.h \
  halmx_2\cores\arduino\WCharacter.h halmx_2\cores\arduino\WString.h \
  halmx_2\cores\arduino/stm/pgmspace.h halmx_2\cores\arduino\Tone.h \
@@ -54,11 +48,24 @@ lib\MXBluePillF103C8\obj\halmx_2\cores\arduino\main.o: \
  halmx_2\cores\arduino\Stream.h halmx_2\cores\arduino\Print.h \
  halmx_2\cores\arduino\Printable.h halmx_2\cores\arduino\wiring_pulse.h \
  halmx_2\variants\STM32F103C-BluePill/variant.h \
- halmx_2\cores\arduino/Arduino.h halmx_2\cores\arduino/UARTClass.h \
+ halmx_2\cores\arduino/Arduino.h halmx_2\cores\arduino/USBSerial.h \
+ halmx_2\system\include/usb_device.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_def.h \
+ halmx_2\system\include/usbd_conf.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_core.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_def.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ioreq.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_core.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ctlreq.h \
+ halmx_2\system\include/usbd_desc.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc/usbd_cdc.h \
+ halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ioreq.h \
+ halmx_2\system\include/usbd_cdc_if.h halmx_2\cores\arduino/RingBuffer.h \
+ halmx_2\cores\arduino/Stream.h halmx_2\cores\arduino/UARTClass.h \
  halmx_2\cores\arduino/HardwareSerial.h \
  halmx_2\cores\arduino/USARTClass.h halmx_2\cores\arduino/UARTClass.h \
- halmx_2\cores\arduino/RingBuffer.h halmx_2\cores\arduino/syscalls.h \
- halmx_2\cores\arduino\wiring.h halmx_2\cores\arduino\wiring_digital.h \
+ halmx_2\cores\arduino/syscalls.h halmx_2\cores\arduino\wiring.h \
+ halmx_2\cores\arduino\wiring_digital.h \
  halmx_2\cores\arduino\wiring_analog.h \
  halmx_2\cores\arduino\wiring_shift.h halmx_2\cores\arduino\WInterrupts.h
 
@@ -68,13 +75,13 @@ halmx_2\cores\arduino\binary.h:
 
 halmx_2\cores\arduino\itoa.h:
 
-halmx_2\system\libstm32f103c/chip.h:
+halmx_2\system/chip.h:
 
-halmx_2\system\libstm32f103c/include/hw_config.h:
+halmx_2\system/include/hw_config.h:
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal.h:
 
-halmx_2\system\libstm32f103c\include/stm32f1xx_hal_conf.h:
+halmx_2\system\include/stm32f1xx_hal_conf.h:
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_rcc.h:
 
@@ -134,31 +141,31 @@ halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_ll_usb.h:
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pcd_ex.h:
 
-halmx_2\system\libstm32f103c/include/digital_io.h:
+halmx_2\system/include/digital_io.h:
 
-halmx_2\system\libstm32f103c/include/clock.h:
+halmx_2\system/include/clock.h:
 
-halmx_2\system\libstm32f103c/include/uart_emul.h:
+halmx_2\system/include/uart_emul.h:
 
 halmx_2\system\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_def.h:
 
-halmx_2\system\libstm32f103c/include/timer.h:
+halmx_2\system/include/timer.h:
 
-halmx_2\system\libstm32f103c/include/digital_io.h:
+halmx_2\system/include/digital_io.h:
 
-halmx_2\system\libstm32f103c/include/uart.h:
+halmx_2\system/include/uart.h:
 
-halmx_2\system\libstm32f103c/include/analog.h:
+halmx_2\system/include/analog.h:
 
-halmx_2\system\libstm32f103c/include/interrupt.h:
+halmx_2\system/include/interrupt.h:
 
-halmx_2\system\libstm32f103c/include/spi_com.h:
+halmx_2\system/include/spi_com.h:
 
-halmx_2\system\libstm32f103c/include/timer.h:
+halmx_2\system/include/timer.h:
 
-halmx_2\system\libstm32f103c/include/twi.h:
+halmx_2\system/include/twi.h:
 
-halmx_2\system\libstm32f103c/include/stm32_eeprom.h:
+halmx_2\system/include/stm32_eeprom.h:
 
 halmx_2\cores\arduino\wiring_constants.h:
 
@@ -186,6 +193,36 @@ halmx_2\variants\STM32F103C-BluePill/variant.h:
 
 halmx_2\cores\arduino/Arduino.h:
 
+halmx_2\cores\arduino/USBSerial.h:
+
+halmx_2\system\include/usb_device.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_def.h:
+
+halmx_2\system\include/usbd_conf.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_core.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_def.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ioreq.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_core.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ctlreq.h:
+
+halmx_2\system\include/usbd_desc.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc/usbd_cdc.h:
+
+halmx_2\system\Middlewares\ST\STM32_USB_Device_Library\Core\Inc/usbd_ioreq.h:
+
+halmx_2\system\include/usbd_cdc_if.h:
+
+halmx_2\cores\arduino/RingBuffer.h:
+
+halmx_2\cores\arduino/Stream.h:
+
 halmx_2\cores\arduino/UARTClass.h:
 
 halmx_2\cores\arduino/HardwareSerial.h:
@@ -193,8 +230,6 @@ halmx_2\cores\arduino/HardwareSerial.h:
 halmx_2\cores\arduino/USARTClass.h:
 
 halmx_2\cores\arduino/UARTClass.h:
-
-halmx_2\cores\arduino/RingBuffer.h:
 
 halmx_2\cores\arduino/syscalls.h:
 
